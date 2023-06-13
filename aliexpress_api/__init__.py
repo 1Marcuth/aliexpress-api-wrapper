@@ -3,6 +3,7 @@ from typing import Optional
 
 from .settings import DEFAULT_CURRENCY, DEFAULT_LANGUAGE
 from .product import ProductFetcher
+from .search import ProductSearcher
 
 class AliExpress:
     @validate_arguments
@@ -30,4 +31,10 @@ class AliExpress:
 
         data = fetcher.fetch()
 
+        return data
+
+    @validate_arguments
+    def search_products(self, query: str, page_number: int = 1) -> dict:
+        searcher = ProductSearcher(self._origin_url)
+        data = searcher.search(query, page_number)
         return data

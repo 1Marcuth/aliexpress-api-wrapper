@@ -7,7 +7,8 @@ def main():
         language = "pt"
     )
 
-    data = ali.fetch_product(url="https://pt.aliexpress.com/item/1005004336772445.html")
+    ali.fetch_product(url="https://pt.aliexpress.com/item/1005004336772445.html")
+    data = ali.search_products("Batatas")
 
     print(json.dumps(data))
 
